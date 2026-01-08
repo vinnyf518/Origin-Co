@@ -61,19 +61,25 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onClose }) => {
     };
 
     try {
-      const response = await fetch('https://services.leadconnectorhq.com/hooks/OcvKVh9DjfdJduvHiTaT/webhook-trigger/dd044643-e78a-49d8-9f76-66e05c653e0c', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(submissionData),
-      });
+      // Use URLSearchParams for better webhook compatibility
+      const formBody = new URLSearchParams();
+      formBody.append('fullName', submissionData.fullName);
+      formBody.append('email', submissionData.email);
+      formBody.append('phone', submissionData.phone);
+      formBody.append('companyName', submissionData.companyName);
+      formBody.append('companyType', submissionData.companyType);
+      formBody.append('website', submissionData.website);
 
-      if (response.ok) {
-        setIsSubmitted(true);
-      } else {
-        setError('Something went wrong. Please try again.');
-      }
+      await fetch('https://services.leadconnectorhq.com/hooks/OcvKVh9DjfdJduvHiTaT/webhook-trigger/dd044643-e78a-49d8-9f76-66e05c653e0c', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded',
+        },
+        body: formBody.toString(),
+      });
+      // With no-cors mode, we can't read the response, but the request is sent
+      setIsSubmitted(true);
     } catch {
       setError('Something went wrong. Please try again.');
     } finally {
