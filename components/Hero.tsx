@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useQuoteForm } from '../App';
 
 export const Hero: React.FC = () => {
+  const { openQuoteForm } = useQuoteForm();
+
   const container = {
     hidden: { opacity: 0 },
     show: {
@@ -16,12 +19,12 @@ export const Hero: React.FC = () => {
 
   const item = {
     hidden: { opacity: 0, y: 30 },
-    show: { opacity: 1, y: 0, transition: { type: 'spring', damping: 15 } }
+    show: { opacity: 1, y: 0, transition: { type: 'spring' as const, damping: 15 } }
   };
 
   return (
     <section className="relative pt-40 pb-20 px-6 overflow-hidden min-h-screen flex flex-col justify-center items-center text-center">
-      <motion.div 
+      <motion.div
         variants={container}
         initial="hidden"
         animate="show"
@@ -33,7 +36,7 @@ export const Hero: React.FC = () => {
           </span>
         </motion.div>
 
-        <motion.h1 
+        <motion.h1
           variants={item}
           className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.85] mb-8"
         >
@@ -41,23 +44,29 @@ export const Hero: React.FC = () => {
           <span className="text-indigo-600">ELEVATED.</span>
         </motion.h1>
 
-        <motion.p 
+        <motion.p
           variants={item}
           className="text-xl md:text-2xl text-white/60 font-medium max-w-2xl mx-auto leading-relaxed mb-12"
         >
           Origin Marketing Co. builds high-performance websites and local marketing strategies for small businesses and service professionals. We handle the digital side so you can focus on the work.
         </motion.p>
 
-        <motion.div 
+        <motion.div
           variants={item}
           className="flex flex-col sm:flex-row items-center justify-center gap-4"
         >
-          <button className="w-full sm:w-auto px-10 py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-bold text-lg transition-all shadow-[0_0_40px_-10px_rgba(79,70,229,0.5)] hover:shadow-indigo-500/40 transform hover:-translate-y-1">
+          <button
+            onClick={openQuoteForm}
+            className="w-full sm:w-auto px-10 py-5 bg-indigo-600 hover:bg-indigo-500 text-white rounded-2xl font-bold text-lg transition-all shadow-[0_0_40px_-10px_rgba(79,70,229,0.5)] hover:shadow-indigo-500/40 transform hover:-translate-y-1"
+          >
             Get a Free Quote
           </button>
-          <button className="w-full sm:w-auto px-10 py-5 glass hover-glass rounded-2xl font-bold text-lg transition-all transform hover:-translate-y-1">
+          <a
+            href="#services"
+            className="w-full sm:w-auto px-10 py-5 glass hover-glass rounded-2xl font-bold text-lg transition-all transform hover:-translate-y-1"
+          >
             View Our Services
-          </button>
+          </a>
         </motion.div>
       </motion.div>
 

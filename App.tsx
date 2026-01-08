@@ -1,5 +1,6 @@
 
-import React, { useEffect } from 'react';
+import React, { useEffect, useState, createContext, useContext } from 'react';
+import { AnimatePresence } from 'framer-motion';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { ProblemSolution } from './components/ProblemSolution';
@@ -10,8 +11,26 @@ import { About } from './components/About';
 import { FAQ } from './components/FAQ';
 import { Footer } from './components/Footer';
 import { AnimatedBackground } from './components/AnimatedBackground';
+import { QuoteForm } from './components/QuoteForm';
+
+// Create context for quote form
+const QuoteFormContext = createContext<{ openQuoteForm: () => void }>({ openQuoteForm: () => {} });
+
+export const useQuoteForm = () => useContext(QuoteFormContext);
 
 function App() {
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
+
+  const openQuoteForm = () => {
+    setShowQuoteForm(true);
+    document.body.style.overflow = 'hidden';
+  };
+
+  const closeQuoteForm = () => {
+    setShowQuoteForm(false);
+    document.body.style.overflow = '';
+  };
+
   useEffect(() => {
     // Smooth scroll behavior for internal links
     const handleAnchorClick = (e: MouseEvent) => {
@@ -30,20 +49,26 @@ function App() {
   }, []);
 
   return (
-    <div className="relative min-h-screen">
-      <AnimatedBackground />
-      <Navbar />
-      <main>
-        <Hero />
-        <ProblemSolution />
-        <Services />
-        <Industries />
-        <Process />
-        <About />
-        <FAQ />
-      </main>
-      <Footer />
-    </div>
+    <QuoteFormContext.Provider value={{ openQuoteForm }}>
+      <div className="relative min-h-screen">
+        <AnimatedBackground />
+        <Navbar />
+        <main>
+          <Hero />
+          <ProblemSolution />
+          <Services />
+          <Industries />
+          <Process />
+          <About />
+          <FAQ />
+        </main>
+        <Footer />
+
+        <AnimatePresence>
+          {showQuoteForm && <QuoteForm onClose={closeQuoteForm} />}
+        </AnimatePresence>
+      </div>
+    </QuoteFormContext.Provider>
   );
 }
 

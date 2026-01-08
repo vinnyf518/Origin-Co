@@ -1,8 +1,11 @@
 
 import React from 'react';
 import { Reveal } from './Reveal';
+import { useQuoteForm } from '../App';
 
 export const Footer: React.FC = () => {
+  const { openQuoteForm } = useQuoteForm();
+
   return (
     <footer id="contact" className="pt-32 pb-12 px-6 border-t border-white/5 bg-black">
       <div className="max-w-7xl mx-auto">
@@ -14,7 +17,10 @@ export const Footer: React.FC = () => {
             </h2>
           </Reveal>
           <Reveal width="100%" delay={0.4}>
-            <button className="px-12 py-6 bg-white text-black hover:bg-indigo-600 hover:text-white rounded-2xl font-black text-xl transition-all shadow-2xl transform hover:scale-110 active:scale-95">
+            <button
+              onClick={openQuoteForm}
+              className="px-12 py-6 bg-white text-black hover:bg-indigo-600 hover:text-white rounded-2xl font-black text-xl transition-all shadow-2xl transform hover:scale-110 active:scale-95"
+            >
               GET STARTED NOW
             </button>
           </Reveal>

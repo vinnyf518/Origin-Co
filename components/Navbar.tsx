@@ -1,10 +1,13 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import { useQuoteForm } from '../App';
 
 export const Navbar: React.FC = () => {
+  const { openQuoteForm } = useQuoteForm();
+
   return (
-    <motion.nav 
+    <motion.nav
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       className="fixed top-0 left-0 right-0 z-50 px-6 py-4"
@@ -14,7 +17,7 @@ export const Navbar: React.FC = () => {
           <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-bold text-xl">O</div>
           <span className="font-bold text-xl tracking-tight uppercase">Origin</span>
         </div>
-        
+
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
           <a href="#services" className="hover:text-white transition-colors">Services</a>
           <a href="#industries" className="hover:text-white transition-colors">Industries</a>
@@ -22,12 +25,12 @@ export const Navbar: React.FC = () => {
           <a href="#about" className="hover:text-white transition-colors">About</a>
         </div>
 
-        <a 
-          href="#contact" 
+        <button
+          onClick={openQuoteForm}
           className="bg-white text-black px-5 py-2 rounded-full text-sm font-bold hover:bg-indigo-500 hover:text-white transition-all transform hover:scale-105 active:scale-95"
         >
           Get a Quote
-        </a>
+        </button>
       </div>
     </motion.nav>
   );
