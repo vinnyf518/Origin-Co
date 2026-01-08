@@ -46,7 +46,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onClose }) => {
     setFormData(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError('');
@@ -60,31 +60,37 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onClose }) => {
       website: formData.website || 'N/A'
     };
 
-    try {
-      // Use URLSearchParams for better webhook compatibility
-      const formBody = new URLSearchParams();
-      formBody.append('fullName', submissionData.fullName);
-      formBody.append('email', submissionData.email);
-      formBody.append('phone', submissionData.phone);
-      formBody.append('companyName', submissionData.companyName);
-      formBody.append('companyType', submissionData.companyType);
-      formBody.append('website', submissionData.website);
+    // Create a hidden iframe to submit form without CORS issues
+    const iframe = document.createElement('iframe');
+    iframe.name = 'hidden-form-iframe';
+    iframe.style.display = 'none';
+    document.body.appendChild(iframe);
 
-      await fetch('https://services.leadconnectorhq.com/hooks/OcvKVh9DjfdJduvHiTaT/webhook-trigger/dd044643-e78a-49d8-9f76-66e05c653e0c', {
-        method: 'POST',
-        mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        body: formBody.toString(),
-      });
-      // With no-cors mode, we can't read the response, but the request is sent
-      setIsSubmitted(true);
-    } catch {
-      setError('Something went wrong. Please try again.');
-    } finally {
+    // Create a hidden form
+    const form = document.createElement('form');
+    form.method = 'POST';
+    form.action = 'https://services.leadconnectorhq.com/hooks/OcvKVh9DjfdJduvHiTaT/webhook-trigger/dd044643-e78a-49d8-9f76-66e05c653e0c';
+    form.target = 'hidden-form-iframe';
+
+    // Add form fields
+    Object.entries(submissionData).forEach(([key, value]) => {
+      const input = document.createElement('input');
+      input.type = 'hidden';
+      input.name = key;
+      input.value = value;
+      form.appendChild(input);
+    });
+
+    document.body.appendChild(form);
+    form.submit();
+
+    // Clean up and show success after a short delay
+    setTimeout(() => {
+      document.body.removeChild(form);
+      document.body.removeChild(iframe);
       setIsSubmitting(false);
-    }
+      setIsSubmitted(true);
+    }, 1000);
   };
 
   return (
