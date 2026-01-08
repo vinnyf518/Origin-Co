@@ -33,17 +33,17 @@ export const Process: React.FC = () => {
         <div className="grid lg:grid-cols-3 gap-12 relative">
           {/* Connector Line */}
           <div className="hidden lg:block absolute top-10 left-0 right-0 h-[1px] bg-white/10 -z-10" />
-          
+
           {steps.map((step, index) => (
-            <div key={index} className="flex flex-col items-start lg:items-center text-left lg:text-center group">
-              <Reveal delay={index * 0.2}>
-                <div className="w-20 h-20 bg-black border border-white/10 rounded-3xl flex items-center justify-center text-3xl font-black text-indigo-500 mb-8 group-hover:border-indigo-500/50 group-hover:text-white transition-all duration-500 glass">
+            <Reveal key={index} delay={index * 0.2}>
+              <div className="flex flex-col items-center text-center group">
+                <div className="w-20 h-20 bg-black border border-white/10 rounded-3xl flex items-center justify-center text-3xl font-black text-indigo-500 mb-8 group-hover:border-indigo-500/50 group-hover:text-white transition-all duration-500 glass mx-auto">
                   {step.number}
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
                 <p className="text-white/50 text-lg leading-relaxed">{step.description}</p>
-              </Reveal>
-            </div>
+              </div>
+            </Reveal>
           ))}
         </div>
       </div>

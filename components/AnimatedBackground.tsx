@@ -33,13 +33,6 @@ export const AnimatedBackground: React.FC = () => {
         className="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-blue-900/20 blur-[120px] rounded-full"
       />
       
-      {/* Light Beams */}
-      <div className="absolute inset-0 opacity-[0.15]">
-        <div className="absolute top-0 left-1/4 w-[1px] h-screen bg-gradient-to-b from-transparent via-white to-transparent transform -rotate-12" />
-        <div className="absolute top-0 left-2/4 w-[1px] h-screen bg-gradient-to-b from-transparent via-indigo-400 to-transparent transform rotate-6" />
-        <div className="absolute top-0 left-3/4 w-[1px] h-screen bg-gradient-to-b from-transparent via-blue-400 to-transparent transform -rotate-45" />
-      </div>
-
       {/* Grid Overlay with Indigo Accent */}
       <div
         className="absolute inset-0"
