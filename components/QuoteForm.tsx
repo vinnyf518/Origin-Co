@@ -61,7 +61,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onClose }) => {
     };
 
     try {
-      const response = await fetch('https://services.leadconnectorhq.com/hooks/OcvKVh9DjfdJduvHiTaT/webhook-trigger/c22f9f19-6ade-43da-8217-ec327e0e73e1', {
+      const response = await fetch('https://services.leadconnectorhq.com/hooks/OcvKVh9DjfdJduvHiTaT/webhook-trigger/dd044643-e78a-49d8-9f76-66e05c653e0c', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
