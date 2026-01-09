@@ -31,7 +31,7 @@ export const Footer: React.FC = () => {
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
               <Logo size={32} />
-              <span className="font-bold text-xl tracking-tight uppercase">rigin Marketing Co.</span>
+              <span className="font-bold text-xl tracking-tight uppercase">Origin Marketing Co.</span>
             </div>
             <p className="text-white/40 max-w-sm mb-8">
               Building the digital presence small businesses deserve. High-performance, low-friction, maximum results.

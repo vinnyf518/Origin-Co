@@ -141,7 +141,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onClose }) => {
               <div className="text-center mb-12">
                 <div className="flex items-center justify-center gap-2 mb-6">
                   <Logo size={32} />
-                  <span className="font-bold text-xl tracking-tight uppercase">rigin</span>
+                  <span className="font-bold text-xl tracking-tight uppercase">Origin</span>
                 </div>
                 <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-4">
                   Get Your <span className="text-indigo-600">Free Quote</span>

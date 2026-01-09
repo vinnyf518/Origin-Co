@@ -16,7 +16,7 @@ export const Navbar: React.FC = () => {
       <div className="max-w-7xl mx-auto flex items-center justify-between glass rounded-full px-8 py-3">
         <div className="flex items-center gap-2">
           <Logo size={32} />
-          <span className="font-bold text-xl tracking-tight uppercase">rigin</span>
+          <span className="font-bold text-xl tracking-tight uppercase">Origin</span>
         </div>
 
         <div className="hidden md:flex items-center gap-8 text-sm font-medium text-white/70">
