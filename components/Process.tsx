@@ -31,8 +31,8 @@ export const Process: React.FC = () => {
         </Reveal>
 
         <div className="grid lg:grid-cols-3 gap-12 relative">
-          {/* Connector Line */}
-          <div className="hidden lg:block absolute top-10 left-0 right-0 h-[1px] bg-white/10 -z-10" />
+          {/* Connector Line - spans between step centers */}
+          <div className="hidden lg:block absolute top-10 left-[16.67%] right-[16.67%] h-[1px] bg-white/10 -z-10" />
 
           {steps.map((step, index) => (
             <Reveal key={index} delay={index * 0.2}>
