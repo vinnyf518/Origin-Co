@@ -50,6 +50,13 @@
           animation: none;
         }
       }
+      /* Disable all transitions on mobile for performance */
+      @media (max-width: 767px) {
+        *, *::before, *::after {
+          transition: none !important;
+          animation: none !important;
+        }
+      }
     </style>
   <script type="importmap">
 {

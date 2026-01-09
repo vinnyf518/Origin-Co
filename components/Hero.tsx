@@ -1,10 +1,15 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { useQuoteForm } from '../App';
 
 export const Hero: React.FC = () => {
   const { openQuoteForm } = useQuoteForm();
+  const [isMobile, setIsMobile] = useState(true); // Default to mobile to prevent flash
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
 
   const container = {
     hidden: { opacity: 0 },
@@ -22,6 +27,60 @@ export const Hero: React.FC = () => {
     show: { opacity: 1, y: 0, transition: { duration: 0.4, ease: "easeOut" as const } }
   };
 
+  // Mobile version - no animations
+  if (isMobile) {
+    return (
+      <section className="relative pt-40 pb-20 px-6 overflow-hidden min-h-screen flex flex-col justify-center items-center text-center">
+        <div className="max-w-4xl">
+          <div className="mb-6">
+            <span className="inline-block px-4 py-1.5 rounded-full border border-indigo-500/30 bg-indigo-500/10 text-indigo-400 text-xs font-bold tracking-widest uppercase">
+              Marketing & Web Solutions
+            </span>
+          </div>
+
+          <h1 className="text-6xl md:text-8xl lg:text-9xl font-black tracking-tighter leading-[0.85] mb-8">
+            YOUR BUSINESS,<br />
+            <span className="text-indigo-600">ELEVATED.</span>
+          </h1>
+
+          <p className="text-xl md:text-2xl text-white/60 font-medium max-w-2xl mx-auto leading-relaxed mb-12">
+            Origin Marketing Co. builds high-performance websites and local marketing strategies for small businesses and service professionals. We handle the digital side so you can focus on the work.
+          </p>
+
+          <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
+            <button
+              onClick={openQuoteForm}
+              className="w-full sm:w-auto px-10 py-5 bg-indigo-600 text-white rounded-2xl font-bold text-lg shadow-[0_0_40px_-10px_rgba(79,70,229,0.5)]"
+            >
+              Get a Free Quote
+            </button>
+            <a
+              href="#services"
+              className="w-full sm:w-auto px-10 py-5 glass rounded-2xl font-bold text-lg"
+            >
+              View Our Services
+            </a>
+          </div>
+        </div>
+
+        {/* Showcase Image */}
+        <div className="mt-20 glass w-full max-w-5xl h-64 md:h-96 rounded-3xl relative p-2 overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-blue-600/10 z-10 pointer-events-none" />
+          <div className="w-full h-full bg-[#0a0a0a] rounded-2xl border border-white/5 overflow-hidden">
+            <img
+              src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=70"
+              alt="Professional workspace with analytics dashboard"
+              loading="lazy"
+              decoding="async"
+              className="w-full h-full object-cover opacity-50"
+            />
+          </div>
+        </div>
+      </section>
+    );
+  }
+
+  // Desktop version - with animations
   return (
     <section className="relative pt-40 pb-20 px-6 overflow-hidden min-h-screen flex flex-col justify-center items-center text-center">
       <motion.div
@@ -84,7 +143,7 @@ export const Hero: React.FC = () => {
             alt="Professional workspace with analytics dashboard"
             loading="lazy"
             decoding="async"
-            className="w-full h-full object-cover opacity-50 md:group-hover:opacity-70 md:group-hover:scale-105 transition-all duration-500"
+            className="w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-500"
           />
         </div>
       </motion.div>

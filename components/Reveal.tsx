@@ -1,5 +1,5 @@
 
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 
 interface RevealProps {
@@ -9,6 +9,21 @@ interface RevealProps {
 }
 
 export const Reveal: React.FC<RevealProps> = ({ children, width = "fit-content", delay = 0.25 }) => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    setIsMobile(window.innerWidth < 768);
+  }, []);
+
+  // On mobile, render without any animation
+  if (isMobile) {
+    return (
+      <div style={{ position: "relative", width }}>
+        {children}
+      </div>
+    );
+  }
+
   return (
     <div style={{ position: "relative", width, overflow: "hidden" }}>
       <motion.div
