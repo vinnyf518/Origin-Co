@@ -11,7 +11,7 @@ export const Logo: React.FC<LogoProps> = ({ size = 32, className = '' }) => {
     <svg
       width={size}
       height={size}
-      viewBox="0 0 244 300"
+      viewBox="5 90 230 200"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
       className={className}
