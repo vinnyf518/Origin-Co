@@ -29,8 +29,8 @@ export const Footer: React.FC = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 pt-20 border-t border-white/5">
           <div className="lg:col-span-2">
-            <div className="flex items-center gap-2 mb-6">
-              <Logo size={32} />
+            <div className="flex items-center gap-3 mb-6">
+              <Logo size={40} />
               <span className="font-bold text-xl tracking-tight uppercase">Origin Marketing Co.</span>
             </div>
             <p className="text-white/40 max-w-sm mb-8">
