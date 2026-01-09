@@ -27,7 +27,7 @@ const faqs = [
 ];
 
 export const FAQ: React.FC = () => {
-  const [active, setActive] = useState<number | null>(0);
+  const [active, setActive] = useState<number | null>(null);
 
   return (
     <section className="py-32 px-6">
