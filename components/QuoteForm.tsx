@@ -139,7 +139,7 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onClose }) => {
           {!isSubmitted ? (
             <>
               <div className="text-center mb-12">
-                <div className="flex items-center justify-center gap-3 mb-6">
+                <div className="flex items-center justify-center gap-2 mb-6">
                   <Logo size={40} />
                   <span className="font-bold text-xl tracking-tight uppercase">Origin</span>
                 </div>
