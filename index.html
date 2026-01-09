@@ -24,12 +24,17 @@
         color: #fff;
       }
       .glass {
-        background: rgba(255, 255, 255, 0.03);
-        backdrop-filter: blur(12px);
+        background: rgba(255, 255, 255, 0.05);
         border: 1px solid rgba(255, 255, 255, 0.08);
       }
+      @media (min-width: 768px) {
+        .glass {
+          background: rgba(255, 255, 255, 0.03);
+          backdrop-filter: blur(12px);
+        }
+      }
       .hover-glass:hover {
-        background: rgba(255, 255, 255, 0.06);
+        background: rgba(255, 255, 255, 0.08);
         border: 1px solid rgba(255, 255, 255, 0.15);
       }
       @keyframes float {
@@ -38,6 +43,12 @@
       }
       .animate-float {
         animation: float 6s ease-in-out infinite;
+      }
+      /* Reduce motion for users who prefer it */
+      @media (prefers-reduced-motion: reduce) {
+        .animate-float {
+          animation: none;
+        }
       }
     </style>
   <script type="importmap">
