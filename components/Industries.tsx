@@ -1,28 +1,27 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Reveal } from './Reveal';
 
 const industries = [
   {
     name: "Home Services",
     desc: "Handymen, HVAC, Plumbers, Landscapers.",
-    img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=500&fit=crop"
+    img: "https://images.unsplash.com/photo-1581578731548-c64695cc6952?w=400&h=500&fit=crop&q=60"
   },
   {
     name: "Professional Services",
     desc: "Lawyers, Accountants, Real Estate.",
-    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop"
+    img: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&q=60"
   },
   {
     name: "Health & Wellness",
     desc: "Gyms, Salons, Local Clinics.",
-    img: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=500&fit=crop"
+    img: "https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?w=400&h=500&fit=crop&q=60"
   },
   {
     name: "Local Retail",
     desc: "Coffee Shops, Boutiques, Specialty Stores.",
-    img: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=400&h=500&fit=crop"
+    img: "https://images.unsplash.com/photo-1559925393-8be0ec4767c8?w=400&h=500&fit=crop&q=60"
   }
 ];
 
@@ -37,9 +36,9 @@ export const Industries: React.FC = () => {
                 Built for <span className="text-white/40">Every Industry.</span>
               </h2>
             </Reveal>
-            <Reveal delay={0.4}>
+            <Reveal delay={0.2}>
               <p className="text-xl text-white/60 font-medium">
-                Whether you’re a contractor on a job site or a professional in an office, we build the tools you need to grow.
+                Whether you're a contractor on a job site or a professional in an office, we build the tools you need to grow.
               </p>
             </Reveal>
           </div>
@@ -47,27 +46,25 @@ export const Industries: React.FC = () => {
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {industries.map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
               className="relative aspect-[4/5] rounded-[32px] overflow-hidden group cursor-pointer"
             >
-              <img 
-                src={item.img} 
+              <img
+                src={item.img}
                 alt={item.name}
-                className="absolute inset-0 w-full h-full object-cover grayscale opacity-40 group-hover:grayscale-0 group-hover:scale-110 group-hover:opacity-60 transition-all duration-700"
+                loading="lazy"
+                decoding="async"
+                className="absolute inset-0 w-full h-full object-cover opacity-40 md:grayscale md:group-hover:grayscale-0 md:group-hover:scale-105 md:group-hover:opacity-60 transition-all duration-500"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80 group-hover:opacity-90 transition-opacity" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black via-black/20 to-transparent opacity-80" />
               <div className="absolute bottom-0 left-0 p-8 w-full">
-                <h3 className="text-2xl font-bold mb-2 group-hover:text-indigo-400 transition-colors">{item.name}</h3>
-                <p className="text-white/50 text-sm opacity-0 group-hover:opacity-100 transition-all transform translate-y-4 group-hover:translate-y-0 duration-500">
+                <h3 className="text-2xl font-bold mb-2 md:group-hover:text-indigo-400 transition-colors">{item.name}</h3>
+                <p className="text-white/50 text-sm md:opacity-0 md:group-hover:opacity-100 transition-opacity duration-300">
                   {item.desc}
                 </p>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

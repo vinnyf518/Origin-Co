@@ -1,6 +1,5 @@
 
 import React from 'react';
-import { motion } from 'framer-motion';
 import { Reveal } from './Reveal';
 
 const services = [
@@ -55,18 +54,16 @@ export const Services: React.FC = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {services.map((service, index) => (
-            <motion.div
+            <div
               key={index}
-              whileHover={{ y: -10, scale: 1.01 }}
-              transition={{ type: 'spring', damping: 20 }}
-              className="group p-10 rounded-[32px] glass hover-glass transition-all duration-500"
+              className="group p-10 rounded-[32px] glass hover-glass transition-all duration-300 md:hover:-translate-y-2"
             >
-              <div className="w-16 h-16 bg-indigo-600/10 text-indigo-500 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-500 shadow-xl shadow-transparent group-hover:shadow-indigo-600/20">
+              <div className="w-16 h-16 bg-indigo-600/10 text-indigo-500 rounded-2xl flex items-center justify-center mb-8 group-hover:bg-indigo-600 group-hover:text-white transition-all duration-300">
                 {service.icon}
               </div>
               <h3 className="text-2xl font-bold mb-4">{service.title}</h3>
               <p className="text-lg text-white/50 leading-relaxed">{service.subtitle}</p>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

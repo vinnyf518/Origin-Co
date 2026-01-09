@@ -80,9 +80,11 @@ export const Hero: React.FC = () => {
         <div className="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-blue-600/10 z-10 pointer-events-none" />
         <div className="w-full h-full bg-[#0a0a0a] rounded-2xl border border-white/5 overflow-hidden">
           <img
-            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=1200&h=800&fit=crop"
+            src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=500&fit=crop&q=70"
             alt="Professional workspace with analytics dashboard"
-            className="w-full h-full object-cover opacity-50 group-hover:opacity-70 group-hover:scale-105 transition-all duration-700"
+            loading="lazy"
+            decoding="async"
+            className="w-full h-full object-cover opacity-50 md:group-hover:opacity-70 md:group-hover:scale-105 transition-all duration-500"
           />
         </div>
       </motion.div>
