@@ -1,6 +1,7 @@
 
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
+import { Logo } from './Logo';
 
 interface QuoteFormProps {
   onClose: () => void;
@@ -139,8 +140,8 @@ export const QuoteForm: React.FC<QuoteFormProps> = ({ onClose }) => {
             <>
               <div className="text-center mb-12">
                 <div className="flex items-center justify-center gap-2 mb-6">
-                  <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-bold text-xl">O</div>
-                  <span className="font-bold text-xl tracking-tight uppercase">Origin</span>
+                  <Logo size={32} />
+                  <span className="font-bold text-xl tracking-tight uppercase">rigin</span>
                 </div>
                 <h1 className="text-4xl md:text-6xl font-black tracking-tighter mb-4">
                   Get Your <span className="text-indigo-600">Free Quote</span>

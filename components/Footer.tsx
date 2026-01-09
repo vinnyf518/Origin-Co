@@ -2,6 +2,7 @@
 import React from 'react';
 import { Reveal } from './Reveal';
 import { useQuoteForm } from '../App';
+import { Logo } from './Logo';
 
 export const Footer: React.FC = () => {
   const { openQuoteForm } = useQuoteForm();
@@ -29,8 +30,8 @@ export const Footer: React.FC = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12 pt-20 border-t border-white/5">
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
-              <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center font-bold text-xl">O</div>
-              <span className="font-bold text-xl tracking-tight uppercase">Origin Marketing Co.</span>
+              <Logo size={32} />
+              <span className="font-bold text-xl tracking-tight uppercase">rigin Marketing Co.</span>
             </div>
             <p className="text-white/40 max-w-sm mb-8">
               Building the digital presence small businesses deserve. High-performance, low-friction, maximum results.
