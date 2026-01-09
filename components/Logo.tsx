@@ -16,57 +16,79 @@ export const Logo: React.FC<LogoProps> = ({ size = 32, className = '' }) => {
       xmlns="http://www.w3.org/2000/svg"
       className={className}
     >
-      {/* Main circular O shape with arrow */}
+      {/* Main circular O shape - starts from bottom, wraps around */}
       <path
-        d="M50 8C27.909 8 10 25.909 10 48C10 70.091 27.909 88 50 88C60.5 88 70 84 77 77"
+        d="M30 80
+           C10 65 5 40 20 20
+           C35 0 65 0 80 20"
         stroke="#4f46e5"
-        strokeWidth="10"
+        strokeWidth="8"
         strokeLinecap="round"
         fill="none"
       />
-      {/* Arrow stem curving up */}
+      {/* Diagonal line through circle continuing to arrow */}
       <path
-        d="M77 77C82 72 86 65 88 57C90 49 90 41 87 34"
+        d="M25 85 L55 45"
         stroke="#4f46e5"
-        strokeWidth="10"
+        strokeWidth="8"
+        strokeLinecap="round"
+        fill="none"
+      />
+      {/* Arrow curve from top of circle */}
+      <path
+        d="M80 20 C90 30 95 15 88 8"
+        stroke="#4f46e5"
+        strokeWidth="8"
         strokeLinecap="round"
         fill="none"
       />
       {/* Arrow head */}
       <path
-        d="M87 34L95 22L78 28"
+        d="M88 8 L97 12 L92 3 Z"
+        fill="#4f46e5"
+      />
+      <path
+        d="M88 8 L80 18"
         stroke="#4f46e5"
-        strokeWidth="10"
+        strokeWidth="5"
         strokeLinecap="round"
-        strokeLinejoin="round"
-        fill="none"
       />
-      {/* Growth bars - smallest */}
-      <rect
-        x="28"
-        y="58"
-        width="10"
-        height="18"
-        rx="2"
-        fill="#818cf8"
+      <path
+        d="M88 8 L95 18"
+        stroke="#4f46e5"
+        strokeWidth="5"
+        strokeLinecap="round"
       />
-      {/* Growth bars - medium */}
+      {/* Growth bars - positioned at angle in bottom left */}
+      {/* Smallest bar */}
       <rect
-        x="44"
-        y="48"
-        width="10"
-        height="28"
-        rx="2"
+        x="22"
+        y="62"
+        width="8"
+        height="16"
+        rx="1"
         fill="#818cf8"
+        transform="rotate(-25 26 70)"
       />
-      {/* Growth bars - tallest */}
+      {/* Medium bar */}
       <rect
-        x="60"
-        y="36"
-        width="10"
-        height="40"
-        rx="2"
+        x="34"
+        y="54"
+        width="8"
+        height="24"
+        rx="1"
         fill="#818cf8"
+        transform="rotate(-25 38 66)"
+      />
+      {/* Tallest bar */}
+      <rect
+        x="46"
+        y="44"
+        width="8"
+        height="34"
+        rx="1"
+        fill="#818cf8"
+        transform="rotate(-25 50 61)"
       />
     </svg>
   );
