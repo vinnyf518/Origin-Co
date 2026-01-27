@@ -12,7 +12,7 @@ export const About: React.FC = () => {
             <div className="relative glass p-4 rounded-[40px]">
               <div className="aspect-square rounded-[30px] overflow-hidden">
                 <img
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?w=800&h=800&fit=crop&fp-y=0.3"
+                  src="/images/origin-story.png"
                   alt="The Origin Marketing Co. Team"
                   className="w-full h-full object-cover grayscale opacity-80"
                 />
@@ -33,7 +33,7 @@ export const About: React.FC = () => {
           </Reveal>
           <Reveal delay={0.4}>
             <p className="text-xl text-white/60 leading-relaxed mb-8">
-              Origin Marketing Co. was founded by two brothers with a simple mission: to give small business owners the same high-end marketing tools that big corporations use. 
+              Origin Marketing Co. was founded by two brothers with a simple mission: to give small business owners the same high-end marketing tools that big corporations use.
             </p>
             <p className="text-xl text-white/60 leading-relaxed">
               We believe in transparency, hard work, and building long-term partnerships with the businesses that power our community.

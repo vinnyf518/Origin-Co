@@ -6,12 +6,12 @@ const industries = [
   {
     name: "Home Services",
     desc: "Handymen, HVAC, Plumbers, Landscapers.",
-    img: "https://images.unsplash.com/photo-1540479859555-17af45c78602?w=400&h=500&fit=crop&q=60"
+    img: "/images/contractor.png"
   },
   {
     name: "Professional Services",
     desc: "Lawyers, Accountants, Real Estate.",
-    img: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=400&h=500&fit=crop&q=60"
+    img: "/images/professional.png"
   },
   {
     name: "Health & Wellness",
