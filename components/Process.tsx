@@ -37,11 +37,11 @@ export const Process: React.FC = () => {
           {steps.map((step, index) => (
             <Reveal key={index} delay={index * 0.2}>
               <div className="flex flex-col items-center text-center group">
-                <div className="w-20 h-20 bg-black border border-white/10 rounded-3xl flex items-center justify-center text-3xl font-black text-indigo-500 mb-8 group-hover:border-indigo-500/50 group-hover:text-white transition-all duration-500 glass mx-auto leading-none">
+                <div className="w-20 h-20 bg-black border border-white/10 rounded-3xl flex items-center justify-center text-3xl font-black text-indigo-500 mb-8 group-hover:border-indigo-500/50 group-hover:text-white transition-all duration-500 glass mx-auto leading-none pt-1">
                   {step.number}
                 </div>
                 <h3 className="text-2xl font-bold mb-4">{step.title}</h3>
-                <p className="text-white/50 text-lg leading-relaxed">{step.description}</p>
+                <p className="text-white/50 text-lg leading-relaxed max-w-sm mx-auto">{step.description}</p>
               </div>
             </Reveal>
           ))}
