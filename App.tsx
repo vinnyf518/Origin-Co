@@ -24,11 +24,17 @@ function App() {
   const openQuoteForm = () => {
     setShowQuoteForm(true);
     document.body.style.overflow = 'hidden';
+    // Add history entry so back button closes the form
+    window.history.pushState({ quoteForm: true }, '', '#quote');
   };
 
   const closeQuoteForm = () => {
     setShowQuoteForm(false);
     document.body.style.overflow = '';
+    // Go back in history if we're on the quote hash
+    if (window.location.hash === '#quote') {
+      window.history.back();
+    }
   };
 
   useEffect(() => {
@@ -49,13 +55,19 @@ function App() {
 
     // Handle back/forward button navigation
     const handlePopState = (e: PopStateEvent) => {
+      // If form is open and we're navigating away from #quote, close it
+      if (window.location.hash !== '#quote') {
+        setShowQuoteForm(false);
+        document.body.style.overflow = '';
+      }
+
       const hash = window.location.hash;
-      if (hash) {
+      if (hash && hash !== '#quote') {
         const element = document.querySelector(hash);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth' });
         }
-      } else {
+      } else if (!hash) {
         // No hash means go to top of page
         window.scrollTo({ top: 0, behavior: 'smooth' });
       }
