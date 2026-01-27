@@ -24,7 +24,7 @@ export const Process: React.FC = () => {
   return (
     <section id="process" className="py-32 px-6">
       <div className="max-w-7xl mx-auto">
-        <Reveal>
+        <Reveal width="100%">
           <h2 className="text-5xl md:text-7xl font-bold tracking-tighter mb-24 text-center">
             Our Three-Step <span className="text-indigo-600">Origin Process</span>
           </h2>
@@ -35,7 +35,7 @@ export const Process: React.FC = () => {
           <div className="hidden lg:block absolute top-10 left-0 right-0 h-[1px] bg-white/10 -z-10" />
 
           {steps.map((step, index) => (
-            <Reveal key={index} delay={index * 0.2}>
+            <Reveal key={index} delay={index * 0.2} width="100%">
               <div className="flex flex-col items-center text-center group">
                 <div className="w-20 h-20 bg-black border border-white/10 rounded-3xl flex items-center justify-center text-3xl font-black text-indigo-500 mb-8 group-hover:border-indigo-500/50 group-hover:text-white transition-all duration-500 glass mx-auto leading-none pt-1">
                   {step.number}
