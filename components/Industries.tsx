@@ -6,7 +6,7 @@ const industries = [
   {
     name: "Home Services",
     desc: "Handymen, HVAC, Plumbers, Landscapers.",
-    img: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=400&h=500&fit=crop&q=60"
+    img: "https://images.unsplash.com/photo-1540479859555-17af45c78602?w=400&h=500&fit=crop&q=60"
   },
   {
     name: "Professional Services",
