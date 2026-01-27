@@ -17,7 +17,7 @@ export const About: React.FC = () => {
                   className="w-full h-full object-cover grayscale opacity-80"
                 />
               </div>
-              <div className="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-600 to-violet-600 text-white py-6 px-12 rounded-[30px] shadow-2xl shadow-indigo-500/30 border border-white/20 hidden md:block whitespace-nowrap">
+              <div className="absolute -bottom-10 -right-10 bg-gradient-to-br from-indigo-600 to-violet-600 text-white py-8 px-12 rounded-[30px] shadow-2xl shadow-indigo-500/30 border border-white/20 hidden md:flex items-center justify-center">
                 <span className="text-4xl font-black italic tracking-tighter">Est. 2026</span>
               </div>
             </div>
