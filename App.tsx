@@ -40,12 +40,33 @@ function App() {
         e.preventDefault();
         const element = document.querySelector(anchor.hash);
         if (element) {
+          // Push to history so back button works
+          window.history.pushState({ section: anchor.hash }, '', anchor.hash);
           element.scrollIntoView({ behavior: 'smooth' });
         }
       }
     };
+
+    // Handle back/forward button navigation
+    const handlePopState = (e: PopStateEvent) => {
+      const hash = window.location.hash;
+      if (hash) {
+        const element = document.querySelector(hash);
+        if (element) {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }
+      } else {
+        // No hash means go to top of page
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+    };
+
     window.addEventListener('click', handleAnchorClick);
-    return () => window.removeEventListener('click', handleAnchorClick);
+    window.addEventListener('popstate', handlePopState);
+    return () => {
+      window.removeEventListener('click', handleAnchorClick);
+      window.removeEventListener('popstate', handlePopState);
+    };
   }, []);
 
   return (
